@@ -6,6 +6,7 @@ const Contents = ({
   exercises2,
   exercises3,
 }) => {
+  console.log("Hello");
   return (
     <>
       <p>
