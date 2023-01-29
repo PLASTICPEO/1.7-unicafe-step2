@@ -2,8 +2,23 @@ import "./App.css";
 import Contents from "./Components/contents/contents";
 import Total from "./Components/total/total";
 
-const Header = ({ course }) => {
-  return <h1>{course}</h1>;
+const Header = ({ props }) => {
+  class Test {
+    constructor(name, code) {
+      this.name = name;
+      this.code = code;
+    }
+    testMethod() {
+      return "Hi " + this.name + "Code : " + this.code;
+    }
+    testSecond() {
+      return this.code + "fs";
+    }
+  }
+
+  const person1 = new Test("Terminator", 125411);
+  console.log(person1.testMethod());
+  return <h1>{props}</h1>;
 };
 
 const App = () => {
