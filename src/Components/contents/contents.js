@@ -1,5 +1,4 @@
 const Contents = ({ props }) => {
-  console.log(props);
   return (
     <>
       {props.map((item) => {

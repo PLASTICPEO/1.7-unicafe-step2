@@ -14,7 +14,9 @@ const Total = () => {
     },
   ];
 
-  let result = parts.reduce((a, b) => a.exercises + b.exercises);
+  const result = parts.reduce((a, b) => {
+    return a + b.exercises;
+  }, 0);
 
   return <p>Number of exercises {result}</p>;
 };
