@@ -1,48 +1,20 @@
-import "./App.css";
-import Contents from "./Components/contents/contents";
-import Total from "./Components/total/total";
-
-const Header = ({ props }) => {
-  class Test {
-    constructor(name, code) {
-      this.name = name;
-      this.code = code;
-    }
-    testMethod() {
-      return "Hi " + this.name + "Code : " + this.code;
-    }
-    testSecond() {
-      return this.code + "fs";
-    }
-  }
-
-  const person1 = new Test("Terminator", 125411);
-  console.log(person1.testMethod());
-  return <h1>{props}</h1>;
-};
+import { useEffect, useState } from "react";
+import Display from "./Components/Display/display";
+import Button from "./Components/Button/button";
 
 const App = () => {
-  const course = "Half Stack application development";
-  const parts = [
-    {
-      name: "Fundamentals of React",
-      exercises: 10,
-    },
-    {
-      name: "Using props to pass data",
-      exercises: 7,
-    },
-    {
-      name: "State of a component",
-      exercises: 14,
-    },
-  ];
+  const [counter, setCounter] = useState(0);
+
+  const increaseByOne = () => setCounter(counter + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+  const setToZero = () => setCounter(0);
 
   return (
     <div>
-      <Header course={course} />
-      <Contents props={parts} />
-      <Total props={parts} />
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="plus" />
+      <Button onClick={setToZero} text="zero" />
+      <Button onClick={decreaseByOne} text="minus" />
     </div>
   );
 };
