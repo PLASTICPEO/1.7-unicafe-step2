@@ -1,20 +1,5 @@
-const Total = () => {
-  const parts = [
-    {
-      name: "Fundamentals of React",
-      exercises: 10,
-    },
-    {
-      name: "Using props to pass data",
-      exercises: 7,
-    },
-    {
-      name: "State of a component",
-      exercises: 14,
-    },
-  ];
-
-  const result = parts.reduce((a, b) => {
+const Total = ({ props }) => {
+  const result = props.reduce((a, b) => {
     return a + b.exercises;
   }, 0);
 
