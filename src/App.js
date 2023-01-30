@@ -1,20 +1,31 @@
-import { useEffect, useState } from "react";
-import Display from "./Components/Display/display";
+import { useState } from "react";
 import Button from "./Components/Button/button";
-
+import Statistic from "./Components/Statistic/statistic";
 const App = () => {
-  const [counter, setCounter] = useState(0);
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
-  const increaseByOne = () => setCounter(counter + 1);
-  const decreaseByOne = () => setCounter(counter - 1);
-  const setToZero = () => setCounter(0);
+  const all = good + neutral + bad;
+  const average = (good - bad) / all;
+  const positive = (all ? (good * 100) / all : 0) + " %";
+  console.log(average);
 
   return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={increaseByOne} text="plus" />
-      <Button onClick={setToZero} text="zero" />
-      <Button onClick={decreaseByOne} text="minus" />
+      <h1>Give Feedback</h1>
+      <Button onClick={() => setGood(good + 1)} text={"good"} />
+      <Button onClick={() => setNeutral(neutral + 1)} text={"neutral"} />
+      <Button onClick={() => setBad(bad + 1)} text={"bad"} />
+      <h1>Statistic</h1>
+      <Statistic
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        average={average}
+        positive={positive}
+      />
     </div>
   );
 };
