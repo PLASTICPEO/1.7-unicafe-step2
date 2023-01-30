@@ -10,7 +10,6 @@ const App = () => {
   const all = good + neutral + bad;
   const average = (good - bad) / all;
   const positive = (all ? (good * 100) / all : 0) + " %";
-  console.log(average);
 
   return (
     <div>
@@ -23,6 +22,7 @@ const App = () => {
         good={good}
         neutral={neutral}
         bad={bad}
+        all={all}
         average={average}
         positive={positive}
       />
