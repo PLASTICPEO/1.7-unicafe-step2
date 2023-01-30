@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "./Components/Button/button";
-import Statistic from "./Components/Statistic/statistic";
-const App = () => {
+import Button from "../Components/Button/button";
+import Statistic from "../Components/Statistic/statistic";
+const App1 = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -30,4 +30,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App1;
