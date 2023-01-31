@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "./components/button";
 
 const anecdotes = [
   "If it hurts, do it more often.",
@@ -24,6 +25,7 @@ const App = () => {
     copy[selected] += 1;
     setVotes(copy);
   };
+
   useEffect(() => {
     if (Math.max(...votes) > 0) {
       setMaxVote(anecdotes[votes.indexOf(Math.max(...votes))]);
@@ -35,14 +37,14 @@ const App = () => {
     <>
       <div>{anecdotes[selected]}</div>
       <div>has {votes[selected]} Vote</div>
-      <button
+      <Button
         onClick={() =>
           setSelected(Math.floor(Math.random() * anecdotes.length))
         }
-      >
-        Next anecdote
-      </button>
-      <button onClick={voteForAnecdote}>Vote</button>
+        text={" Next anecdote"}
+      />
+
+      <Button onClick={voteForAnecdote} text={"Vote"} />
       <h1>Anecdotes with most votes</h1>
       <div>{maxVote}</div>
       <h2>Has {votes[votes.indexOf(Math.max(...votes))]} Votes</h2>
