@@ -29,7 +29,6 @@ const App = () => {
   useEffect(() => {
     if (Math.max(...votes) > 0) {
       setMaxVote(anecdotes[votes.indexOf(Math.max(...votes))]);
-      console.log();
     }
   }, [votes]);
 
