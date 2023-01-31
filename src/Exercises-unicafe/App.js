@@ -11,7 +11,7 @@ const anecdotes = [
   "The only way to go fast, is to go well.",
 ];
 
-const App2 = () => {
+const App = () => {
   const [selected, setSelected] = useState(0);
 
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0));
@@ -50,4 +50,4 @@ const App2 = () => {
   );
 };
 
-export default App2;
+export default App;
